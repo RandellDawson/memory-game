@@ -89,7 +89,7 @@ const game = () => {
     answer = getRandomImage();
     document.querySelectorAll(".grid-item").forEach(function (elem, i) {
       elem.innerHTML = `<img
-      src="${imagesArr[i]}"
+      src="images/${imagesArr[i]}"
       alt="${imagesArr[i].split(".")[0]}"
       class="image"
     />`;

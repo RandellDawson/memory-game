@@ -23,7 +23,7 @@ body {
   height: 100px;
 }
 .image {
-  width: 100px;
+  width: 100%;
 }
 
 #start-button {
