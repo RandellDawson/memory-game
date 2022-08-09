@@ -15,7 +15,7 @@ Array.prototype.shuffle = function () {
 };
 
 const game = () => {
-  const showModal = (msg, duration, cb) => {
+  const showModal = (msg, duration, elem, cb) => {
     const popupMsg = document.createElement("div");
     popupMsg.setAttribute("class", "alert-box");
     popupMsg.innerHTML = msg;
@@ -27,7 +27,7 @@ const game = () => {
         }
       }, duration);
     }
-    gridContainer.appendChild(popupMsg);
+    elem.appendChild(popupMsg);
   };
 
   const updateTries = (numTries) => {
@@ -46,13 +46,13 @@ const game = () => {
     selectedImageElem.style.display = "block";
     const selectedImage = selectedImageElem.alt;
     const isWinner = selectedImage === answer;
-    const modalMessage = isWinner ? "You Win!" : "Wrong Animal. Try again.";
+    const modalMessage = isWinner ? "Found it!" : "Try again.";
     if (isWinner) {
       selectedImageElem.parentNode.classList.add('winner');
       gridContainer.removeEventListener("click", checkClick);
     }
 
-    showModal(modalMessage, 1000, function () {
+    showModal(modalMessage, 1000, selectedImageElem.parentNode, function () {
       const gameOver = isWinner;
       if (!gameOver) {
         setTimeout(function () {
@@ -72,7 +72,7 @@ const game = () => {
     });
     answer = getRandomImage();
     addGridClickListener();
-    showModal(`Where was the ${answer} located?`, 2000);
+    showModal(`Where is the ${answer}?`, 2000, gridContainer);
   }
 
   const createGrid = () => {
