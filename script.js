@@ -48,7 +48,7 @@ const game = () => {
     const isWinner = selectedImage === answer;
     const modalMessage = isWinner ? "You Win!" : "Wrong Animal. Try again.";
     if (isWinner) {
-      selectedImageElem.parentNode.style.backgroundColor = "green";
+      selectedImageElem.parentNode.classList.add('winner');
       gridContainer.removeEventListener("click", checkClick);
     }
 
@@ -88,6 +88,8 @@ const game = () => {
   };
 
   const startGame = () => {
+    numTries = 0;
+    updateTries(numTries);
     createGrid();
     gridContainer.removeEventListener("click", checkClick);
     imagesArr.shuffle();
@@ -113,7 +115,7 @@ const game = () => {
 
   startBtnElem.addEventListener("click", startGame);
   let answer;
-  let numTries = 0;
+  let numTries;
   createGrid();
 };
 

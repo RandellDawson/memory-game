@@ -6,7 +6,7 @@ body {
   margin: auto;
   display: grid;
   grid-gap: 20px;
-  width: 500px;
+  max-width: 700px;
   position: relative;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
@@ -14,13 +14,13 @@ body {
   padding: 10px;
 }
 .grid-item {
-
+  padding: 3px;
+  display: flex;
   background-color: rgba(255, 255, 255, 0.8);
   outline: 1px solid black;
   font-size: 30px;
-  text-align: center;
-  width: 150px;
-  height: 100px;
+  width: 210px;
+  height: 140px;
 }
 .image {
   width: 100%;
@@ -47,4 +47,9 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.winner {
+  outline: 2px solid green;
+  background-color: green;
 }
