@@ -30,9 +30,14 @@ const game = () => {
     gridContainer.appendChild(popupMsg);
   };
 
+  const updateTries = (numTries) => {
+    numTriesElem.innerText = `Number of Tries: ${numTries}`;
+  }
+
   const checkClick = (event) => {
     if (event.target && event.target.classList.contains("grid-item")) {
       const imageElem = event.target.querySelector(".image");
+      updateTries(++numTries);
       showChoiceResult(imageElem);
     }
   };
@@ -99,6 +104,7 @@ const game = () => {
 
   const gridContainer = document.getElementById("grid-container");
   const startBtnElem = document.getElementById("start-button");
+  const numTriesElem = document.getElementById("number-tries");
   const imagesArr = [
     "kangaroo.jpg", "lion.jpg", "shark.jpg",
     "dog.jpg", "cat.jpg", "rabbit.jpg",
@@ -107,6 +113,7 @@ const game = () => {
 
   startBtnElem.addEventListener("click", startGame);
   let answer;
+  let numTries = 0;
   createGrid();
 };
 

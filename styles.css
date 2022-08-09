@@ -27,9 +27,7 @@ body {
 }
 
 #start-button {
-  margin: 10px auto;
   padding: 10px;
-  left: 50%;
 }
 
 .alert-box {
@@ -41,4 +39,12 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
   background-color:white;
+}
+
+.bottom {
+  margin: auto;
+  width: 500px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
